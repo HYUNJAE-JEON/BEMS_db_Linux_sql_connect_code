@@ -10,6 +10,7 @@
 import socket
 import Global
 import osLogger
+from _datetime import datetime
 import pandas as pd
 
 
@@ -37,13 +38,14 @@ def getChecksum(Data: str = None):
 
 
 if __name__ == '__main__':
-    data = pd.read_csv('2020_metro_popul_.csv', encoding='cp949')
-    Pkt1 = data
+    now = datetime.now().strftime("[%Y.%m.%d. %H:%M:%S]")
+    ls = [1, now, 'nana', 'HYUNJAEJEON' ]
+    Pkt1 = ls
 
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect(('127.0.0.1', 7885))
 
     # client.send(Pkt1.encode())
-    print('SEND : '+ Pkt1)
+    print('SEND : ', Pkt1)
 
     client.close()

@@ -1,0 +1,15 @@
+INSERT INTO {TBL_DATA_RECV}
+(
+    RECV_CODE
+    RECV_TIME
+    RECV_DATA
+    STUDENT_NM
+
+)
+
+VALUES
+
+(
+    {1}
+
+)

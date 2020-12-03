@@ -55,13 +55,16 @@ class cDataCapture(threading.Thread):
             ConnectLog.writeLog(LogMsg)
             lock.release()
 
-            while True:
-                # 데이터 수신 대기
-                RecvPacket = str()
-                RecvByteStream = (self._mChannel.recv(Global.MAX_BUF))
-                RecvPacket = RecvByteStream.decode()
 
-                print(RecvPacket)
+            # 데이터 수신 대기
+            RecvPacket = str()
+            RecvByteStream = (self._mChannel.recv(Global.MAX_BUF))
+            RecvPacket = RecvByteStream.decode()
+
+            # Params['Query'] = ProgramCode.strip() + '_DATA_' + Period
+            # InsertDataResult = osDB.execute(QueryInfo.INSERT_DATA.format(**Params))
+            # if not InsertDataResult:
+            #     IdxCnt +=1
 
         except Exception as Ex:
             if ExceptLog is None:
